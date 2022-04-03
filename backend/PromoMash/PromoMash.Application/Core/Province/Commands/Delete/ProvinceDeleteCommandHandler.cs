@@ -1,5 +1,5 @@
 using MediatR;
-using PromoMash.Application.Common.Exceptions;
+using PromoMash.Application.Common.Exception;
 using PromoMash.Application.Declaration;
 using PromoMash.Domain.Core;
 

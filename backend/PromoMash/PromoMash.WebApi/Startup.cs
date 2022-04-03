@@ -3,6 +3,7 @@ using PromoMash.Application;
 using PromoMash.Application.Common.Mapping;
 using PromoMash.Application.Declaration;
 using PromoMash.Persistence;
+using PromoMash.WebApi.Middleware;
 
 namespace PromoMash.WebApi;
 
@@ -33,6 +34,13 @@ public class Startup
                 policy.AllowAnyOrigin();
             });
         });
+        
+        services.AddSwaggerGen(config =>
+        {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            config.IncludeXmlComments(xmlPath);
+        });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +50,15 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
+        
+        app.UseSwagger();
+        app.UseSwaggerUI(config =>
+        {
+            config.RoutePrefix = string.Empty;
+            config.SwaggerEndpoint("swagger/v1/swagger.json", "PromoMash API");
+        });
+        
+        app.UseCustomExceptionHandler();
         app.UseRouting();
         app.UseHttpsRedirection();
         app.UseCors("AllowAll");

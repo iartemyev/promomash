@@ -65,7 +65,7 @@ public class CountryController : BaseController
 
     [HttpGet]
     [Description("Get a list of countries")]
-    public async Task<IActionResult> List(string text)
+    public async Task<IActionResult> List(string? text)
     {
         var query = new CountryListQuery(text);
         

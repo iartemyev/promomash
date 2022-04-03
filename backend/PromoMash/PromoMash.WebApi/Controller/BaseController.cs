@@ -5,7 +5,7 @@ namespace PromoMash.WebApi.Controller;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-public class BaseController : HomeController
+public class BaseController : ControllerBase
 {
     private IMediator _mediator;
 

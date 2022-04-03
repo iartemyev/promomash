@@ -20,7 +20,7 @@ public class CountryListQueryHandler : IRequestHandler<CountryListQuery, Country
     public async Task<CountryListVm> Handle(CountryListQuery request, CancellationToken cancellationToken)
     {
         var entitiesQuery = await _dbContext.Countries
-            .Where(e => e.Name.StartsWith(request.Text))
+            .Where(entity => request.Text == null || entity.Name.StartsWith(request.Text))
             .ProjectTo<CountryLookupDto>(_mapper.ConfigurationProvider)
             .ToListAsync(cancellationToken);
 

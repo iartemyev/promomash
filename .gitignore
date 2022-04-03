@@ -9,3 +9,6 @@ backend/PromoMash/PromoMash.UnitTest/obj/
 backend/PromoMash/PromoMash.UnitTest/bin/
 backend/PromoMash/PromoMash.WebApi/obj/
 backend/PromoMash/PromoMash.WebApi/bin/
+*.db
+*.db-shm
+*.db-wal

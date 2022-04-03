@@ -1,6 +1,81 @@
+using System.ComponentModel;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using PromoMash.Application.Core.Province.Commands.Create;
+using PromoMash.Application.Core.Province.Commands.Delete;
+using PromoMash.Application.Core.Province.Commands.Update;
+using PromoMash.Application.Core.Province.Queries.List;
+using PromoMash.Application.Core.Province.Queries.Read;
+using PromoMash.WebApi.Model.Province;
+
 namespace PromoMash.WebApi.Controller;
 
-public class ProvinceController
+public class ProvinceController : BaseController
 {
+    private readonly IMapper _mapper;
+
+    public ProvinceController(IMapper mapper)
+    {
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+    }
+
+    [HttpPost]
+    [Description("Create province")]
+    public async Task<IActionResult> Create([FromBody] ProvinceCreateDto dto)
+    {
+        var command = _mapper.Map<ProvinceCreateCommand>(dto);
+
+        var entityId = await Mediator.Send(command);
+        
+        return Created(entityId);
+    }
     
+    [HttpGet("{id}")]
+    [Description("Get province by id")]
+    public async Task<IActionResult> Read(string id)
+    {
+        var query = new ProvinceReadQuery(id);
+        
+        var vm = await Mediator.Send(query);
+        
+        return Ok(vm);
+    }
+    
+    [HttpPut]
+    [Description("Udate province")]
+    public async Task<IActionResult> Update([FromBody] ProvinceUpdateDto dto)
+    {
+        var command = _mapper.Map<ProvinceUpdateCommand>(dto);
+
+        await Mediator.Send(command);
+        
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    [Description("Update province by id")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        var command = new ProvinceDeleteCommand(id);
+        
+        await Mediator.Send(command);
+
+        return NoContent();
+    }
+
+    [HttpGet]
+    [Description("Get a list of provincies")]
+    public async Task<IActionResult> List(string countryId)
+    {
+        var query = new ProvinceListQuery(countryId);
+        
+        var vm = await Mediator.Send(query);
+
+        if (!vm.Provincies.Any())
+        {
+            return NoContent();
+        }
+
+        return Ok(vm);
+    }
 }
