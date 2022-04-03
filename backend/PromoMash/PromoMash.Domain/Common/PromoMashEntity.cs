@@ -8,5 +8,5 @@ public abstract class PromoMashEntity : IEntity
     
     public long? UpdatedAt { get; protected set; } = DateTime.UtcNow.ToUnixTimeMilliseconds();
     
-    public string Id { get; protected set;  } = Guid.NewGuid().ToString("N");
+    public string Id { get; set;  } = Guid.NewGuid().ToString("N");
 }

@@ -1,6 +1,6 @@
 using AutoMapper;
 using PromoMash.Application.Common.Mapping;
-using PromoMash.Application.Core.Country.Commands.Create;
+using PromoMash.Application.Core.Country.Command.Create;
 
 namespace PromoMash.WebApi.Model.Country;
 

@@ -13,3 +13,4 @@ backend/PromoMash/PromoMash.WebApi/bin/
 *.db-shm
 *.db-wal
 *.log
+*.user

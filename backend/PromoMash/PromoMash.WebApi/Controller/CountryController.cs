@@ -1,11 +1,11 @@
 using System.ComponentModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using PromoMash.Application.Core.Country.Commands.Create;
-using PromoMash.Application.Core.Country.Commands.Delete;
-using PromoMash.Application.Core.Country.Commands.Update;
-using PromoMash.Application.Core.Country.Queries.List;
-using PromoMash.Application.Core.Country.Queries.Read;
+using PromoMash.Application.Core.Country.Command.Create;
+using PromoMash.Application.Core.Country.Command.Delete;
+using PromoMash.Application.Core.Country.Command.Update;
+using PromoMash.Application.Core.Country.Query.List;
+using PromoMash.Application.Core.Country.Query.Read;
 using PromoMash.WebApi.Model.Country;
 
 namespace PromoMash.WebApi.Controller;
