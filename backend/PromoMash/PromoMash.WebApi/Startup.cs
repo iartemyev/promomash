@@ -9,7 +9,7 @@ namespace PromoMash.WebApi;
 
 public class Startup
 {
-    public IConfiguration Configuration { get; }
+    private IConfiguration Configuration { get; }
 
     public Startup(IConfiguration configuration) => Configuration = configuration;
 
@@ -60,7 +60,7 @@ public class Startup
         
         app.UseCustomExceptionHandler();
         app.UseRouting();
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseCors("AllowAll");
 
         app.UseEndpoints(endpoints =>
