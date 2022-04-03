@@ -7,17 +7,12 @@ namespace PromoMash.WebApi.Controller;
 [Route("api/[controller]/[action]")]
 public class BaseController : ControllerBase
 {
-    private IMediator _mediator;
+    private IMediator? _mediator;
 
     protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>()!;
     
-    protected IActionResult Created(object value = null)
+    protected IActionResult Created(object? value = null)
     {
         return StatusCode(StatusCodes.Status201Created, value);
-    }
-    
-    protected IActionResult InternalError(object value = null)
-    {
-        return StatusCode(StatusCodes.Status500InternalServerError, value);
     }
 }
