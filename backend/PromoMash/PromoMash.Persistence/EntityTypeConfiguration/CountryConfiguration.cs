@@ -4,9 +4,9 @@ using PromoMash.Domain.Core;
 
 namespace PromoMash.Persistence.EntityTypeConfiguration;
 
-public class CountryConfiguration : IEntityTypeConfiguration<Country>
+public class CountryConfiguration : IEntityTypeConfiguration<CountryEntity>
 {
-    public void Configure(EntityTypeBuilder<Country> builder)
+    public void Configure(EntityTypeBuilder<CountryEntity> builder)
     {
         builder.HasKey(p => p.Id);
         builder.HasIndex(p => p.Id).IsUnique();

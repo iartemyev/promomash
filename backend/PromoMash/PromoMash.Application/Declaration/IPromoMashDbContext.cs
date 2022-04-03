@@ -5,8 +5,9 @@ namespace PromoMash.Application.Declaration;
 
 public interface IPromoMashDbContext
 {
-    DbSet<Country> Countries { get; set; }
-    DbSet<Province> Provinces { get; set; }
+    DbSet<CountryEntity> Countries { get; set; }
+    
+    DbSet<ProvinceEntity> Provinces { get; set; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

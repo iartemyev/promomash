@@ -4,11 +4,12 @@ using PromoMash.Domain.Core;
 
 namespace PromoMash.Persistence.EntityTypeConfiguration;
 
-public class ProvinceConfiguration : IEntityTypeConfiguration<Province>
+public class ProvinceConfiguration : IEntityTypeConfiguration<ProvinceEntity>
 {
-    public void Configure(EntityTypeBuilder<Province> builder)
+    public void Configure(EntityTypeBuilder<ProvinceEntity> builder)
     {
         builder.HasKey(p => p.Id);
+        builder.HasIndex(p => p.Id).IsUnique();
         builder.HasIndex(p => p.Id).IsUnique();
         builder.Property(p => p.Name).HasMaxLength(250);
     }

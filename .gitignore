@@ -1,8 +1,11 @@
-
-backend/PromoMash/PromoMash/obj/
 backend/PromoMash/.idea/
 backend/PromoMash/PromoMash.Application/obj/
+backend/PromoMash/PromoMash.Application/bin/
 backend/PromoMash/PromoMash.Domain/obj/
+backend/PromoMash/PromoMash.Domain/bin/
 backend/PromoMash/PromoMash.Persistence/obj/
+backend/PromoMash/PromoMash.Persistence/bin/
 backend/PromoMash/PromoMash.UnitTest/obj/
+backend/PromoMash/PromoMash.UnitTest/bin/
 backend/PromoMash/PromoMash.WebApi/obj/
+backend/PromoMash/PromoMash.WebApi/bin/

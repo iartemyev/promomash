@@ -7,9 +7,9 @@ namespace PromoMash.Persistence;
 
 public class PromoMashDbContext : DbContext, IPromoMashDbContext
 {
-    public DbSet<Country> Countries { get; set; }
+    public DbSet<CountryEntity> Countries { get; set; }
     
-    public DbSet<Province> Provinces { get; set; }
+    public DbSet<ProvinceEntity> Provinces { get; set; }
 
     public PromoMashDbContext(DbContextOptions<PromoMashDbContext> options) : base(options)
     {
