@@ -10,7 +10,6 @@ public class ProvinceConfiguration : IEntityTypeConfiguration<ProvinceEntity>
     {
         builder.HasKey(p => p.Id);
         builder.HasIndex(p => p.Id).IsUnique();
-        builder.HasIndex(p => p.Id).IsUnique();
         builder.Property(p => p.Name).HasMaxLength(250);
     }
 }

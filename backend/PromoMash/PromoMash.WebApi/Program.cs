@@ -12,6 +12,7 @@ public static class Program
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
             .WriteTo.File("PromoMash.WebApi.Log-.log", rollingInterval:
                 RollingInterval.Day)
+            .WriteTo.Console()
             .CreateLogger();
         
         var host = CreateHostBuilder(args).Build();

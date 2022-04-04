@@ -1,4 +1,6 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using PromoMash.Application.Common.Exception;
 using PromoMash.Application.Declaration;
 using PromoMash.Domain.Core;
 
@@ -15,7 +17,14 @@ public class ProvinceCreateCommandHandler : IRequestHandler<ProvinceCreateComman
 
     public async Task<string> Handle(ProvinceCreateCommand request, CancellationToken cancellationToken)
     {
-        var entity = new ProvinceEntity(request.Name);
+        var country = await _dbContext.Countries.FirstOrDefaultAsync(e => e.Id == request.CountryId, cancellationToken: cancellationToken);
+
+        if (country == null)
+        {
+            throw new PromoMashNotFoundException(nameof(CountryEntity), request.CountryId);
+        }
+        
+        var entity = new ProvinceEntity(request.Name, country);
 
         await _dbContext.Provinces.AddAsync(entity, cancellationToken);
         

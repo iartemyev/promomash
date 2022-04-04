@@ -8,5 +8,6 @@ public class ProvinceUpdateCommandValidator : AbstractValidator<ProvinceUpdateCo
     {
         RuleFor(c => c.Name).NotEmpty().MaximumLength(250);
         RuleFor(c => c.Id).NotNull().NotEqual(string.Empty);
+        RuleFor(c => c.CountryId).NotNull().NotEmpty();
     }
 }

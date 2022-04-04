@@ -10,6 +10,8 @@ public class ProvinceUpdateDto : IMapWith<ProvinceUpdateCommand>
     
     public string Name { get; set; }
     
+    public string CountryId { get; set; }
+    
     public void Mapping(Profile profile)
     {
         profile.CreateMap<ProvinceUpdateDto, ProvinceUpdateCommand>();

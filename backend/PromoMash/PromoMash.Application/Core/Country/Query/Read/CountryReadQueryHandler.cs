@@ -20,7 +20,8 @@ public class CountryReadQueryHandler : IRequestHandler<CountryReadQuery, Country
 
     public async Task<CountryVm> Handle(CountryReadQuery request, CancellationToken cancellationToken)
     {
-        var entity = await _dbContext.Countries.FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken: cancellationToken);
+        var entity = await _dbContext.Countries
+            .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken: cancellationToken);
 
         if (entity == null)
         {

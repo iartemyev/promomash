@@ -16,7 +16,7 @@ public class CountryEntity : PromoMashEntity
 
     public void SetName(string name)
     {
-        Name = name;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
         UpdatedAt = DateTime.UtcNow.ToUnixTimeMilliseconds();
     }
 }

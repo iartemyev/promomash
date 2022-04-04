@@ -8,6 +8,8 @@ public class ProvinceCreateDto : IMapWith<ProvinceCreateCommand>
 {
     public string Name { get; set; }
     
+    public string CountryId { get; set; }
+
     public void Mapping(Profile profile)
     {
         profile.CreateMap<ProvinceCreateDto, ProvinceCreateCommand>();

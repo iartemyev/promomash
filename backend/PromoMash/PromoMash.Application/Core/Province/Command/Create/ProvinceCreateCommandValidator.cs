@@ -7,5 +7,6 @@ public class ProvinceCreateCommandValidator : AbstractValidator<ProvinceCreateCo
     public ProvinceCreateCommandValidator()
     {
         RuleFor(c => c.Name).NotEmpty().MaximumLength(250);
+        RuleFor(c => c.CountryId).NotNull().NotEmpty();
     }
 }

@@ -20,7 +20,8 @@ public class ProvinceReadQueryHandler : IRequestHandler<ProvinceReadQuery, Provi
 
     public async Task<ProvinceVm> Handle(ProvinceReadQuery request, CancellationToken cancellationToken)
     {
-        var entity = await _dbContext.Countries.FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken: cancellationToken);
+        var entity = await _dbContext.Provinces
+            .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken: cancellationToken);
 
         if (entity == null)
         {

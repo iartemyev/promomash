@@ -24,7 +24,14 @@ public class ProvinceUpdateCommandHandler : IRequestHandler<ProvinceUpdateComman
             throw new PromoMashNotFoundException(nameof(ProvinceEntity), request.Id);
         }
 
-        entity.SetName(request.Name);
+        var country = await _dbContext.Countries.FirstOrDefaultAsync(c => c.Id.Equals(request.CountryId), cancellationToken: cancellationToken);
+        
+        if (country == null)
+        {
+            throw new PromoMashNotFoundException(nameof(CountryEntity), request.CountryId);
+        }
+
+        entity.SetName(request.Name).SetCountryId(request.CountryId);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
         

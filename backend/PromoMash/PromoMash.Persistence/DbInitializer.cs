@@ -1,9 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace PromoMash.Persistence;
 
-public class DbInitializer
+public static class DbInitializer
 {
     public static void Initialize(PromoMashDbContext context)
     {
-        context.Database.EnsureCreated();
+        context.Database.Migrate();
     }
 }

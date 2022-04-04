@@ -19,6 +19,7 @@ public class PromoMashDbContext : DbContext, IPromoMashDbContext
     {
         modelBuilder.ApplyConfiguration(new ProvinceConfiguration());
         modelBuilder.ApplyConfiguration(new CountryConfiguration());
+        DbSeeding.Seed(modelBuilder);
         base.OnModelCreating(modelBuilder);
     }
 }
