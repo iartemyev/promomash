@@ -41,12 +41,10 @@ export class RouterFacade {
 		this._location.back();
 	}
 
-	public home() {
-		let payload: IRouterPayload = {
-			path: [
-				//`${this._customer}/${this._settings.touch ? CUSTOMER_PRODUCT_ITEM : CUSTOMER_PRODUCT_MENU}`,
-			],
-		};
+	public errorPage() {}
+
+	public stepSecond() {
+		let payload: IRouterPayload = { path: [`signup/step-2`] };
 		this.navigate(payload);
 	}
 }

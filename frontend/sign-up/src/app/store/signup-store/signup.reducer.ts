@@ -56,7 +56,7 @@ export const machineReducer = createReducer(
 		signUpLoading: false,
 	})),
 
-	on(SignUpAction.SignUpFirstStepData, (state, { payload }) => ({
+	on(SignUpAction.SignUpStepFirstData, (state, { payload }) => ({
 		...state,
 		login: payload.login,
 		password: payload.password,

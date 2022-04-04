@@ -15,7 +15,7 @@ const SIGNUP_LOADING = '[SignUp] Sign up query Loading';
 const SIGNUP_SUCCESS = '[SignUp] Sign up query Success';
 const SIGNUP_FAILURE = '[SignUp] Sign up query Failure';
 
-const SIGNUP_FIRST_STEP_DATA = '[SignUp] First step data';
+const SIGNUP_STEP_FIRST_DATA = '[SignUp] First step data';
 
 export const CountryListLoading = createAction(COUNTRY_LIST_LOADING);
 export const CountryListSuccess = createAction(
@@ -38,7 +38,7 @@ export const SignUpLoading = createAction(SIGNUP_LOADING, props<{ payload: ISign
 export const SignUpSuccess = createAction(SIGNUP_SUCCESS, props<{ payload: string }>());
 export const SignUpFailure = createAction(SIGNUP_FAILURE, props<{ payload: Error }>());
 
-export const SignUpFirstStepData = createAction(
-	SIGNUP_FIRST_STEP_DATA,
+export const SignUpStepFirstData = createAction(
+	SIGNUP_STEP_FIRST_DATA,
 	props<{ payload: { login: string; password: string; isAgree: boolean } }>(),
 );

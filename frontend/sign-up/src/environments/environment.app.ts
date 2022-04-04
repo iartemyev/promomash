@@ -1,5 +1,5 @@
 export const environmentApp = {
 	settings: {
-		apiUrl: '45.67.57.143:5252',
+		apiUrl: 'localhost:7000',
 	},
 };

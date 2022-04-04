@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PromoMash.Application.Core.Province.Command.Create;
@@ -20,7 +19,6 @@ public class ProvinceController : BaseController
     }
 
     [HttpPost]
-    [Description("Create province")]
     public async Task<IActionResult> Create([FromBody] ProvinceCreateDto dto)
     {
         var command = _mapper.Map<ProvinceCreateCommand>(dto);
@@ -30,8 +28,7 @@ public class ProvinceController : BaseController
         return Created(entityId);
     }
     
-    [HttpGet("{id}")]
-    [Description("Get province by id")]
+    [HttpGet]
     public async Task<IActionResult> Read(string id)
     {
         var query = new ProvinceReadQuery(id);
@@ -42,7 +39,6 @@ public class ProvinceController : BaseController
     }
     
     [HttpPut]
-    [Description("Udate province")]
     public async Task<IActionResult> Update([FromBody] ProvinceUpdateDto dto)
     {
         var command = _mapper.Map<ProvinceUpdateCommand>(dto);
@@ -52,8 +48,7 @@ public class ProvinceController : BaseController
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
-    [Description("Update province by id")]
+    [HttpDelete]
     public async Task<IActionResult> Delete(string id)
     {
         var command = new ProvinceDeleteCommand(id);
@@ -64,7 +59,6 @@ public class ProvinceController : BaseController
     }
 
     [HttpGet]
-    [Description("Get a list of provincies")]
     public async Task<IActionResult> List(string countryId)
     {
         var query = new ProvinceListQuery(countryId);
