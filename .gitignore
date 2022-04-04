@@ -14,3 +14,6 @@ backend/PromoMash/PromoMash.WebApi/bin/
 *.db-wal
 *.log
 *.user
+frontend/sign-up/package-lock.json
+frontend/sign-up/.vscode/extensions.json
+frontend/sign-up/.vscode/extensions.json
