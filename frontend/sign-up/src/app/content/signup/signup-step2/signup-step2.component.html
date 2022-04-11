@@ -1,0 +1,41 @@
+<div class="step2-form" [formGroup]="form">
+
+    <mat-form-field>
+
+        <mat-select placeholder="Select country" formControlName="country" (selectionChange)="onCountryChange($event)">
+
+            <ng-container *ngFor="let country of (countryList$ | async)">
+
+                <mat-option [value]="country.id">{{country.name}}</mat-option>
+
+            </ng-container>
+
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <mat-select placeholder="Select province" formControlName="province">
+
+            <ng-container *ngIf="(provinceListLoading$ | async) === false; else loading ">
+
+                <mat-option *ngFor="let province of (provinceList$ | async)"
+                            [value]="province.id">{{province.name}}</mat-option>
+
+            </ng-container>
+
+            <ng-template #loading>
+                <mat-option disabled>
+                    <div class="deferred-select-placeholder-container">
+                        <span>Loading...</span>
+                        <mat-spinner class="spinner" diameter="20"></mat-spinner>
+                    </div>
+                </mat-option>
+            </ng-template>
+
+        </mat-select>
+
+    </mat-form-field>
+
+</div>

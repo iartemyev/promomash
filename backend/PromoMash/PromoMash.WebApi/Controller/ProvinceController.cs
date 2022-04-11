@@ -61,6 +61,8 @@ public class ProvinceController : BaseController
     [HttpGet]
     public async Task<IActionResult> List(string countryId)
     {
+        await Task.Delay(5000);
+        
         var query = new ProvinceListQuery(countryId);
         
         var vm = await Mediator.Send(query);
@@ -70,6 +72,6 @@ public class ProvinceController : BaseController
             return NoContent();
         }
 
-        return Ok(vm);
+        return Ok(vm.Provincies);
     }
 }

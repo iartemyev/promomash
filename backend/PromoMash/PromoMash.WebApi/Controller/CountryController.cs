@@ -62,7 +62,7 @@ public class CountryController : BaseController
     public async Task<IActionResult> List(string? text)
     {
         var query = new CountryListQuery(text);
-        
+
         var vm = await Mediator.Send(query);
 
         if (!vm.Countries.Any())
@@ -70,6 +70,6 @@ public class CountryController : BaseController
             return NoContent();
         }
 
-        return Ok(vm);
+        return Ok(vm.Countries);
     }
 }

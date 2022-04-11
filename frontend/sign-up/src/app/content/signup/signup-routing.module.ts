@@ -6,23 +6,6 @@ const routes: Routes = [
 	{
 		path: '',
 		component: SignupComponent,
-		children: [
-			{
-				path: 'step-1',
-				loadChildren: () =>
-					import('./step-first/signup-step-first.module').then((m) => m.SignupStepFirstModule),
-			},
-			{
-				path: 'step-2',
-				loadChildren: () =>
-					import('./step-second/signup-step-second.module').then((m) => m.SignupStepSecondModule),
-			},
-			{
-				path: 'result',
-				loadChildren: () =>
-					import('./result/signup-result.module').then((m) => m.SignupResultModule),
-			},
-		],
 	},
 ];
 

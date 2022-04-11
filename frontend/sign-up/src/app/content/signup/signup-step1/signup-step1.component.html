@@ -1,0 +1,33 @@
+<div class="step1-form" [formGroup]="form">
+
+    <mat-form-field>
+        <input matInput type="email" name="login"
+               placeholder="Login" formControlName="login">
+
+        <mat-error *ngIf="login.errors">This is not a valid email.</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <input matInput type="password"
+               placeholder="Password" formControlName="password">
+
+        <mat-error *ngIf="password.errors">The password is mandatory.</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <input matInput type="password"
+               placeholder="Confirm password" formControlName="confirmPassword">
+
+        <mat-error *ngIf="confirmPassword.errors">The confirm password is mandatory.</mat-error>
+
+    </mat-form-field>
+
+    <mat-checkbox color="primary" formControlName="isAgree">
+        Agree
+    </mat-checkbox>
+
+</div>

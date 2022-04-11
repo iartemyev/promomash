@@ -1,0 +1,51 @@
+<div class="data-form">
+
+    <h2 class="title">Sign Up</h2>
+
+    <mat-horizontal-stepper [linear]="true" class="mat-elevation-z5" labelPosition="bottom">
+
+        <mat-step [stepControl]="step1.form" errorMessage="Step 1 in error">
+
+            <ng-template matStepLabel>step 1</ng-template>
+
+            <app-signup-step1 #step1></app-signup-step1>
+
+            <div class="stepper-buttons">
+
+                <button [disabled]="!step1.form.valid" mat-raised-button color="primary" matStepperNext>
+                    Go to Step 2
+                </button>
+
+            </div>
+
+        </mat-step>
+
+        <mat-step [stepControl]="step2.form" errorMessage="Step 2 in error">
+
+            <ng-template matStepLabel>step 2</ng-template>
+
+            <app-signup-step2 #step2></app-signup-step2>
+
+            <div class="stepper-buttons">
+
+                <button mat-raised-button matStepperPrevious>Back</button>
+
+                <button mat-raised-button color="primary"
+                        [disabled]="!step2.form.valid"
+                        (click)="submit(step1.form.value, step2.form.value)">
+                    Save
+                </button>
+
+
+            </div>
+
+        </mat-step>
+
+    </mat-horizontal-stepper>
+
+</div>
+
+<div class="scrolling-space">
+
+
+</div>
