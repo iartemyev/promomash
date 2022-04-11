@@ -29,4 +29,4 @@ _Step 2: (all fields are required)_
 - Province - contains a list of provinces for the selected country. The list of provinces should be loaded by AJAX if the country is changed.
 - Button save - should validate all fields on the step and show validation errors (under the fields) or save the data from the wizard to the database using AJAX call.
 
-
+![pic](pic.png)
